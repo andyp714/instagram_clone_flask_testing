@@ -38,7 +38,7 @@ def authenticate():
         print(f"UserId: {uname}")
         print(f"Password: {pswd}")
         
-    con = sql.connect(r"C:\Users\apauley24\Documents\GitHub\Instagram-Recreation-Project")
+    con = sql.connect(r"C:\Users\apauley24\Documents\GitHub\Instagram-Recreation-Project\instagram_database")
     con.row_factory = sql.Row
 
     cur = con.cursor()

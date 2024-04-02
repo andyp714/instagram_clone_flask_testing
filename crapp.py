@@ -28,7 +28,7 @@ def login():
     print(f"Password: {pswd}")
     
     #connect to database
-    con = sql.connect(r"C:\Users\apauley24\Documents\GitHub\Instagram-Recreation-Project")
+    con = sql.connect(r"C:\Users\apauley24\Documents\GitHub\Instagram-Recreation-Project\instagram_database")
     con.row_factory = sql.Row
 
     #write query to see if user exists in the login table in the database
