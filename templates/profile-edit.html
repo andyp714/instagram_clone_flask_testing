@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Instagram</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/ico/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/ico/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/ico/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="images/ico/apple-touch-icon-167x167-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="images/ico/apple-touch-icon-180x180-precomposed.png">
+    <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/ico/favicon-192.png')}}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='images/ico/favicon.svg') }}" color="#262626">
+    <link rel="shortcut icon" type="image/x-icon" href="images/ico/favicon.ico">
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/dist/bundle.js') }}"></script>
+</head>
+
+<body class="topnav">
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <nav class="mb-5 navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-icon mr-3" href="#">&nbsp;</a>
+                <span class="navbar-separator">&nbsp;</span>
+                <a class="navbar-brand" href="index.html">&nbsp;</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse justify-content-lg-center" id="navbarSupportedContent">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+                <div class="mr-auto">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="ig-explore">
+                            <a href="#explore"></a>
+                        </li>
+                        <li class="ig-activity">
+                            <a href="#activity"></a>
+                        </li>
+                        <li class="ig-profile">
+                            <a href="profile.html"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="container main">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel bordered">
+
+                    <form action="profile_update" method="get">
+                        <div class="form-group
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="profileForm">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <img class="rounded-circle border" src="https://randomuser.me/api/portraits/lego/2.jpg" alt="me" width="38" height="38">
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <h4>Heisenberg
+                                            <br>
+                                            <small>
+                                                <a data-toggle="modal" data-target="#profileModal" href="#">Edit profile photo</a>
+                                            </small>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="name">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="username">Username</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="inputWebsite">Website</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="inputBio">Bio</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" id="bio" placeholder="Bio"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-2">&nbsp;</div>
+                                <span id="helpBlock" class="help-block">Private Information</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="email">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="phone">Phone Number</label>
+                                <div class="col-sm-10">
+                                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="(xxx) xxx-xxxx">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="selectGender">Gender</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="selectGender">
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3" selected>Unspecified</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <div class="col-sm-2">&nbsp;</div>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                    </div>
+
+                    </form>
+                </form> <!--testing gac -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    </div>
+
+    <div class="container footer mt-5 mb-5">
+        <div class="float-right"><small><a href="index.html" class="text-uppercase text-dark">© 2018 Instagram</a></small></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><small><a class="text-uppercase text-dark" href="#aboutus">About us</a></small></li>
+            <li class="list-inline-item"><small><a class="text-uppercase text-dark" href="#support">Support</a></small></li>
+            <li class="list-inline-item"><small><a class="text-uppercase text-dark" href="#blog">Blog</a></small></li>
+            <li class="list-inline-item"><small><a href="#press" class="text-uppercase text-dark">Press</a></small></li>
+            <li class="list-inline-item"><small><a href="#api" class="text-uppercase text-dark">A.P.I.</a></small></li>
+            <li class="list-inline-item"><small><a href="#jobs" class="text-uppercase text-dark">Jobs</a></small></li>
+            <li class="list-inline-item"><small><a href="#privacy" class="text-uppercase text-dark">Privacy</a></small></li>
+            <li class="list-inline-item"><small><a href="#terms" class="text-uppercase text-dark">Terms</a></small></li>
+            <li class="list-inline-item"><small><a href="#directory" class="text-uppercase text-dark">Directory</a></small></li>
+            <li class="list-inline-item"><small><a href="#language" class="text-uppercase text-dark">Language</a></small></li>
+        </ul>
+    </div>
+
+    <!-- Markup for modal window to upload profile picture -->
+    <div id="profileModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Upload a Profile Picture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+    
+                        <!-- Standar Form -->
+                        <h4>Select file from your computer</h4>
+                        <form action="myActionUrl.jsp" method="post" enctype="multipart/form-data" id="js-upload-form">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                                </div>
+                            </div>
+    
+                            <!-- Drop Zone -->
+                            <p>Or drag and drop files below</p>
+                            <div class="upload-drop-zone" id="drop-zone">
+                                Just drag and drop file here
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload file</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+    <!-- Markup for modal window to upload pictures to instagram -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Upload</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Standar Form -->
+                    <h4>Select files from your computer</h4>
+                    <form action="myActionUrl.jsp" method="post" enctype="multipart/form-data" id="js-upload-form">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input type="file" name="files[]" id="js-upload-files" multiple>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                        </div>
+                    </form>
+
+                    <!-- Drop Zone -->
+                    <h4>Or drag and drop files below</h4>
+                    <div class="upload-drop-zone" id="drop-zone">
+                        Just drag and drop files here
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    <!-- form validation script -->
+    <script>
+        $(document).ready(function() {
+            $("#profileForm").bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    name: {
+                        validators: {
+                                stringLength: {
+                                min: 2,
+                            },
+                                notEmpty: {
+                                message: 'Please supply your name'
+                            }
+                        }
+                    },
+                    username: {
+                        validators: {
+                                stringLength: {
+                                min: 2,
+                            },
+                                notEmpty: {
+                                message: 'Please supply your username'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Please supply your email address'
+                            },
+                            emailAddress: {
+                                message: 'Please supply a valid email address'
+                            }
+                        }
+                    },
+                    phone: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Please supply your phone number'
+                            },
+                            phone: {
+                                country: 'US',
+                                message: 'Please supply a valid phone number with area code'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
