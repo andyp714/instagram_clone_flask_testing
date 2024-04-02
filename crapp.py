@@ -33,7 +33,7 @@ def login():
 
     #write query to see if user exists in the login table in the database
     cur = con.cursor()
-    cur.execute("select id,username,password from login where username=" + "'" + uname + "'" + " and password=" + "'" + pswd + "'")
+    cur.execute("select user_id,username,password from user where username=" + "'" + uname + "'" + " and password=" + "'" + pswd + "'")
    
     rows = cur.fetchall(); 
     found = False

@@ -42,7 +42,7 @@ def authenticate():
     con.row_factory = sql.Row
 
     cur = con.cursor()
-    cur.execute("select id,username,password from login where username=" + "'" + uname + "'" + " and password=" + "'" + pswd + "'")
+    cur.execute("select id,username,password from user where username=" + "'" + uname + "'" + " and password=" + "'" + pswd + "'")
    
     rows = cur.fetchall(); 
     found = False
