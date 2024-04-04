@@ -69,7 +69,7 @@ def profile_update():
     con = sql.connect(r"C:\\Users\\apauley24\Documents\\GitHub\\Instagram-Recreation-Project\\instagram_database.db")
 
     # Insert the data into the database
-    con.execute("INSERT INTO login (name, email,username) VALUES (?, ?, ?)", (name, email,username))
+    con.execute("INSERT INTO user (fn, email, username) VALUES (?, ?, ?)", (name, email,username))
     con.commit()
     
     con.close()
