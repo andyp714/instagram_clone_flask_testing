@@ -52,5 +52,31 @@ def login():
     #return render_template('login_insta.html', title='Login')
     return
 
+@app.route('/profile_edit')     #screen for user-id/pwd
+def profile_edit():
+    print("DEBUG: Inside of profile_edit")
+    return render_template('profile-edit.html', title='Profile Edit')
+
+@app.route('/profile_update')     #screen for user-id/pwd
+def profile_update():
+    
+    print("inside at 65")
+    
+    name = request.args['name']
+    email = request.args['email']
+    username = request.args['username']
+   
+    con = sql.connect(r"C:\\Users\\apauley24\Documents\\GitHub\\Instagram-Recreation-Project\\instagram_database.db")
+
+    # Insert the data into the database
+    con.execute("INSERT INTO login (name, email,username) VALUES (?, ?, ?)", (name, email,username))
+    con.commit()
+    
+    con.close()
+
+        # Optionally, you can redirect or render a success message
+    return 'Data inserted successfully!'
+   
+
 if __name__ == '__main__':
     app.run(debug=True)
