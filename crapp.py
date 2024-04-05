@@ -61,15 +61,15 @@ def profile_edit():
 
     # Execute the SQL select statement
     cur = con.cursor()
-    query = "SELECT username,fn,email FROM user WHERE user_id=" + "'" + user_id + "'"
+    query = "SELECT username,fn,ln,email FROM user WHERE user_id=" + "'" + user_id + "'"
     cur.execute(query)
 
     # Fetch all the rows from the result set
-    username,fn,email = cur.fetchone()
+    username,fn,ln,email = cur.fetchone()
     
     con.close()
 
-    return render_template('profile-edit.html', title='Profile Edit',id=user_id, username=username, name=fn, email=email, key=user_id)
+    return render_template('profile-edit.html', title='Profile Edit',id=user_id, username=username, fname=fn, lname=ln, email=email, key=user_id)
 
 @app.route('/profile_update')     #screen for user-id/pwd
 def profile_update():
@@ -78,14 +78,15 @@ def profile_update():
     
     user_id = request.args['id']
     print("id:" + str(user_id))
-    name = request.args['name']
+    fname = request.args['fname']
+    lname = request.args['lname']
     email = request.args['email']
     username = request.args['username']
    
     con = sql.connect(r"C:\\Users\\apauley24\Documents\\GitHub\\Instagram-Recreation-Project\\instagram_database.db")
     
     c = con.cursor()
-    c.execute("UPDATE user SET email = ?, username = ?, fn = ? WHERE user_id = ?", (email, username, name, user_id))
+    c.execute("UPDATE user SET email = ?, username = ?, fn = ?, ln = ? WHERE user_id = ?", (email, username, fname, lname, user_id))
     con.commit()
     con.close()
 
