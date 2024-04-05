@@ -39,11 +39,11 @@ def login():
     rows = cur.fetchall(); 
     found = False
     
-    for key,user_id,password in rows:
+    for key,usern,password in rows:
         found = True
         if found is True:                           #goto welcome screen
             print(found)
-            return render_template("welcome.html", key=key, name=user_id)
+            return render_template("welcome.html", key=key, name=usern)
     if found is False:
         return redirect(url_for('login_fail'))      #goto login_fail screen
     con.close()
@@ -54,24 +54,39 @@ def login():
 
 @app.route('/profile_edit')     #screen for user-id/pwd
 def profile_edit():
-    print("DEBUG: Inside of profile_edit")
-    return render_template('profile-edit.html', title='Profile Edit')
+    user_id = request.args['user_id']
+   
+    con = sql.connect(r"C:\\Users\\apauley24\Documents\\GitHub\\Instagram-Recreation-Project\\instagram_database.db")
+    con.row_factory = sql.Row
+
+    # Execute the SQL select statement
+    cur = con.cursor()
+    query = "SELECT username,fn,email FROM user WHERE user_id=" + "'" + user_id + "'"
+    cur.execute(query)
+
+    # Fetch all the rows from the result set
+    username,fn,email = cur.fetchone()
+    
+    con.close()
+
+    return render_template('profile-edit.html', title='Profile Edit',id=user_id, username=username, name=fn, email=email, key=user_id)
 
 @app.route('/profile_update')     #screen for user-id/pwd
 def profile_update():
     
     print("inside at 65")
     
+    user_id = request.args['id']
+    print("id:" + str(user_id))
     name = request.args['name']
     email = request.args['email']
     username = request.args['username']
    
     con = sql.connect(r"C:\\Users\\apauley24\Documents\\GitHub\\Instagram-Recreation-Project\\instagram_database.db")
-
-    # Insert the data into the database
-    con.execute("INSERT INTO user (fn, email, username) VALUES (?, ?, ?)", (name, email,username))
-    con.commit()
     
+    c = con.cursor()
+    c.execute("UPDATE user SET email = ?, username = ?, fn = ? WHERE user_id = ?", (email, username, name, user_id))
+    con.commit()
     con.close()
 
         # Optionally, you can redirect or render a success message
