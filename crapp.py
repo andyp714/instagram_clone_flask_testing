@@ -91,7 +91,7 @@ def profile_update():
     con.close()
 
         # Optionally, you can redirect or render a success message
-    return 'Data inserted successfully!'
+    return render_template('profile-edit.html', title='Profile Edit',id=user_id, username=username, fname=fname, lname=lname, email=email, key=user_id)
    
 
 if __name__ == '__main__':
