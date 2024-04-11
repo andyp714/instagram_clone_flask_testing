@@ -207,10 +207,12 @@
     
                         <!-- Standar Form -->
                         <h4>Select file from your computer</h4>
-                        <form action="myActionUrl.jsp" method="post" enctype="multipart/form-data" id="js-upload-form">
+                        <form action="upload_picture" method="post" enctype="multipart/form-data" id="js-upload-form">
                             <div class="form-inline">
                                 <div class="form-group">
-                                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                                    <input type="file" name="image" id="js-upload-files" multiple>
+                                    <input type="hidden" class="form-control" name="id" id="id" value="{{id}}">
+                                    <!-- <input type="file" name="files[]" id="js-upload-files" multiple>-->
                                 </div>
                             </div>
     

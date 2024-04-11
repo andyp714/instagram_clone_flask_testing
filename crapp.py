@@ -1,6 +1,7 @@
 import sqlite3 as sql
 from flask import Flask, render_template, url_for, request, redirect                                        # From module flask import class Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 
@@ -92,7 +93,50 @@ def profile_update():
 
         # Optionally, you can redirect or render a success message
     return render_template('profile-edit.html', title='Profile Edit',id=user_id, username=username, fname=fname, lname=lname, email=email, key=user_id)
-   
+
+@app.route('/upload_picture', methods=['GET', 'POST'])
+def upload_file():
+    file = request.files['image']
+    
+    print(file)
+    id = request.form['id']         #get the user id
+    print("id: " + id)
+    
+    if file:
+        
+        filename = file.filename
+        print("filename:" + filename)
+        app.config['UPLOAD_FOLDER'] = 'static/images/user-images'                   #where the file will be saved
+        # Save the file to the uploads folder
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        print(file_path)                                                            #DEBUG
+        #file_path = os.path.join(app.config['IMAGES_FOLDER'], file.filename)
+       
+        con = sql.connect(r"C:\\Users\\apauley24\Documents\\GitHub\\Instagram-Recreation-Project\\instagram_database.db")
+        
+        #student to change this.
+        string_execute = "UPDATE user SET profile_picture = " + "'" + filename + "'" + " WHERE user_id = " + "'" + id + "'"
+        print(string_execute)                                                       #DEBUG
+        con.execute(string_execute)
+        
+        con.commit()
+        con.close()
+        
+        # Check if the file already exists
+        if os.path.exists(file_path):
+            # Delete the file
+            os.remove(file_path)
+            print(f"File '{filename}' deleted.")
+        
+        # Save the file
+        file.save(file_path)
+        print(f"File '{filename}' uploaded and saved.")
+        
+        
+        return 'file uploaded successfully.'
+    
+    else:
+        return 'No file uploaded.'  
 
 if __name__ == '__main__':
     app.run(debug=True)
